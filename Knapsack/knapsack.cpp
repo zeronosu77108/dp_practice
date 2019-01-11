@@ -18,7 +18,7 @@ int main(void) {
             // i 番目の物が， w （一時的な容量）を超えないなら，入れる
             // そうでないなら，前と同じ．
             if( w>= weight[i]) {
-                dp[i+1][w] = dp[i][w - weight[i]] + value[i];
+                dp[i+1][w] = max( dp[i][w - weight[i]] + value[i], dp[i][w]);
             } else {
                 dp[i+1][w] = dp[i][w];
             }
